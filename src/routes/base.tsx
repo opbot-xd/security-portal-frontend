@@ -8,6 +8,7 @@ import FacultyPage from '../pages/faculty';
 import StudentDetailsPage from '../pages/StudentDetails';
 import FacultyDetailsPage from '../pages/facultyDetails';
 import TemporaryFaculty from '../pages/temporaryFaculty';
+import Gatepass from '../pages/gatePass';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -69,6 +70,15 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <TemporaryFaculty />,
+      },
+    ],
+  },{
+    path: '/gate-pass',
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <Gatepass />,
       },
     ],
   },

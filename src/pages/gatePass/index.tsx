@@ -7,29 +7,26 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { LabelInputContainer } from "../../components/ui/LabelInputContainer";
 import { BottomGradient } from "../../components/ui/BottomGradient";
-import { FingerprintButton } from "../../components/ui/FingerprintButton";
 import { PhotoUploadButton } from "../../components/ui/PhotoUploadButton";
 import { DocumentUploadButton } from "../../components/ui/DocumentUploadButton";
 import Drawer from '../../components/ui/Drawer';
 import axios from 'axios';
 
-function TemporaryFaculty() {
+function Gatepass() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [idNumber, setIdNumber] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccues] = useState('');
-    const [image, setImage] = useState<string | null>(null);
     const [photo, setPhoto] = useState<string | null>(null);
     const [idDocument, setIdDocument] = useState<string | null>(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [openPhotoModal, setOpenPhotoModal] = useState(false);
     const [openIdDocumentModal, setOpenIdDocumentModal] = useState(false);
     const handleMainSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             setError("");
             setSuccues("");
             e.preventDefault();
-            const creds = { name: name, phone:phone, id:idNumber, fingerprint:image, photo:photo, IdDocument: idDocument  };
+            const creds = { name: name, phone:phone, id:idNumber, photo:photo, IdDocument: idDocument  };
             try {
                 const response = await axios.post(``, creds);
                 console.log(response.data);
@@ -44,13 +41,6 @@ function TemporaryFaculty() {
                 setError("An error occurred. Please try again.");
             }
         };
-    const handleCapture = (file: File) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setImage(reader.result as string);
-        };
-        reader.readAsDataURL(file);
-    };
 
     const handlePhotoCapture = (file: File) => {
         const reader = new FileReader();
@@ -68,13 +58,6 @@ function TemporaryFaculty() {
         reader.readAsDataURL(file);
     };
 
-    const handleView = () => {
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
     
     const handleOpenPhotoModal = () => setOpenPhotoModal(true);
     const handleClosePhotoModal = () => setOpenPhotoModal(false);
@@ -100,28 +83,10 @@ function TemporaryFaculty() {
                         <Label htmlFor='phone'>Phone Number</Label>
                         <Input id="phone" placeholder="Phone Number" type="text" onChange={(e) => setPhone(e.target.value)} />
                     </LabelInputContainer>
-                    <LabelInputContainer className="mb-4">
+                        <LabelInputContainer className="mb-4">
                         <Label htmlFor='idNumber'>ID Number</Label>
                         <Input id="idNumber" placeholder="ID Number" type="text" onChange={(e) => setIdNumber(e.target.value)} />
-                        <div className="flex justify-center">
-                            <FingerprintButton onCapture={handleCapture} />
-                            {image && (
-                                <div className="flex justify-center items-center">
-                                    <Stack spacing={2} direction="row">
-                                        <Button onClick={handleView} variant="contained">View</Button>
-                                    </Stack>
-                                </div>
-                            )}
-                        </div>
-                        <Modal isOpen={isModalOpen} onRequestClose={closeModal} contentLabel="View Image">
-                            <h2>Captured Fingerprint</h2>
-                            <img src={image || ''} alt="Captured Fingerprint" />
-                            <Button onClick={closeModal} variant="contained" color="error">
-                                Close
-                            </Button>
-                        </Modal>
                     </LabelInputContainer>
-
                     <LabelInputContainer className="mb-4">
                         <Label htmlFor='photo'>Upload Photo</Label>
                         <div className="flex justify-center">
@@ -188,4 +153,4 @@ function TemporaryFaculty() {
     );
 }
 
-export default TemporaryFaculty;
+export default Gatepass;
