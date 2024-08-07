@@ -58,13 +58,13 @@ const DataTable: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center mt-8">
+        <div className="flex bg-slate-900 min-h-screen flex-col justify-center items-center">
             {selectedRows.length > 0 && (
                 <div className="flex mb-4">
-                    <Button variant="contained" color="primary" onClick={handleAccept} style={{ marginRight: 8 }}>
+                    <Button variant="contained" color="success" onClick={handleAccept} style={{ marginRight: 8 }}>
                         Accept Selected
                     </Button>
-                    <Button variant="contained" color="secondary" onClick={handleReject}>
+                    <Button variant="contained" color="error" onClick={handleReject}>
                         Reject Selected
                     </Button>
                 </div>
@@ -93,10 +93,10 @@ const DataTable: React.FC = () => {
                                 <TableCell>{entry.phone}</TableCell>
                                 <TableCell>{entry.id}</TableCell>
                                 <TableCell>
-                                    <Button variant="contained" color="primary" onClick={() => setMessage(`Accepted entry: ${entry.name}`)}>
+                                    <Button variant="contained" color="success" onClick={() => setMessage(`Accepted entry: ${entry.name}`)}>
                                         Accept
                                     </Button>
-                                    <Button variant="contained" color="secondary" onClick={() => setMessage(`Rejected entry: ${entry.name}`)} style={{ marginLeft: 8 }}>
+                                    <Button variant="contained" color="error" onClick={() => setMessage(`Rejected entry: ${entry.name}`)} style={{ marginLeft: 8 }}>
                                         Reject
                                     </Button>
                                 </TableCell>
