@@ -32,8 +32,6 @@ function Gatepass() {
                 console.log(response.data);
                 if (response.status === 200) {
                   setSuccues("Added successfully.")
-                  const dynamicUrl = `/enroll`;
-                  window.location.href = dynamicUrl;
                 } else {
                   setError("An error occurred. Please try again.");
                 }

@@ -9,6 +9,7 @@ import StudentDetailsPage from '../pages/StudentDetails';
 import FacultyDetailsPage from '../pages/facultyDetails';
 import TemporaryFaculty from '../pages/temporaryFaculty';
 import Gatepass from '../pages/gatePass';
+import ViewGatePass from '../pages/viewGatePass';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -79,6 +80,15 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Gatepass />,
+      },
+    ],
+  },{
+    path: '/view-gate-pass',
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <ViewGatePass />,
       },
     ],
   },
