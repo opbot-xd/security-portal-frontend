@@ -2,7 +2,7 @@
 const Homepage = () => {
     return (
       // <ScrollableTable/>
-      <div className="underline">sads</div>
+      <div className="underline">Home</div>
       );
   };
   

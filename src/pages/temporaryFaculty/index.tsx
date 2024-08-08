@@ -11,7 +11,8 @@ import { FingerprintButton } from "@/components/ui/FingerprintButton";
 import { PhotoUploadButton } from "@/components/ui/PhotoUploadButton";
 import { DocumentUploadButton } from "@/components/ui/DocumentUploadButton";
 import Drawer from '@/components/ui/Drawer';
-import axios from 'axios';
+import { basicAxiosPost } from '@/services/basic-axios';
+
 
 function TemporaryFaculty() {
     const [name, setName] = useState('');
@@ -26,24 +27,38 @@ function TemporaryFaculty() {
     const [openPhotoModal, setOpenPhotoModal] = useState(false);
     const [openIdDocumentModal, setOpenIdDocumentModal] = useState(false);
     const handleMainSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-            setError("");
-            setSuccues("");
-            e.preventDefault();
-            const creds = { name: name, phone:phone, id:idNumber, fingerprint:image, photo:photo, IdDocument: idDocument  };
-            try {
-                const response = await axios.post(``, creds);
-                console.log(response.data);
-                if (response.status === 200) {
-                  setSuccues("Added successfully.")
-                  const dynamicUrl = `/enroll`;
-                  window.location.href = dynamicUrl;
-                } else {
-                  setError("An error occurred. Please try again.");
-                }
-              } catch (err) {
-                setError("An error occurred. Please try again.");
-            }
+        setError("");
+        setSuccues("");
+        e.preventDefault();
+      
+        const creds = {
+          name: name,
+          phone: phone,
+          id: idNumber,
+          fingerprint: image,
+          photo: photo,
+          IdDocument: idDocument,
         };
+      
+        try {
+          const response = await basicAxiosPost(
+            '/your-endpoint', // replace with the actual endpoint
+            creds
+          );
+      
+          console.log(response.data);
+      
+          if (response.status === 200) {
+            setSuccues("Added successfully.");
+            const dynamicUrl = `/enroll`;
+            window.location.href = dynamicUrl;
+          } else {
+            setError("An error occurred. Please try again.");
+          }
+        } catch (err) {
+          setError("An error occurred. Please try again.");
+        }
+      };
     const handleCapture = (file: File) => {
         const reader = new FileReader();
         reader.onloadend = () => {

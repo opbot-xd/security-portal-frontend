@@ -3,10 +3,12 @@ import { Label } from "@/components/ui/Label";
 import { Input } from "@/components/ui/input";
 import {LabelInputContainer} from "@/components/ui/LabelInputContainer"
 import {BottomGradient} from "@/components/ui/BottomGradient"
-import axios from "axios";
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Drawer from '@/components/ui/Drawer'
+import {  channelI_POST } from '@/services/basic-axios';
+
+
 const FacultyPage = () => {
   const [fid, setFid] = React.useState("");
   const [error, setError] = React.useState(""); // State to manage error message
@@ -14,11 +16,17 @@ const FacultyPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(""); // Reset error message
-    console.log("hello");
+
     const creds = { username: fid };
+
     try {
-      const response = await axios.post(``, creds);
+      const response = await channelI_POST(
+        '/your-endpoint', // replace with the actual endpoint
+        creds
+      );
+
       console.log(response.data);
+
       if (response.status === 200) {
         const dynamicUrl = `/student/${fid}`;
         window.location.href = dynamicUrl;
@@ -30,9 +38,10 @@ const FacultyPage = () => {
     }
   };
 
-  const onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFid(e.target.value);
-  };
+const onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFid(e.target.value);
+};
+
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-slate-900">

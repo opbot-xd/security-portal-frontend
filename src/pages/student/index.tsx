@@ -1,7 +1,7 @@
 import React from "react";
 import { Label } from "@/components/ui/Label";
 import { Input } from "@/components/ui/input";
-import axios from "axios";
+import { basicAxiosPost } from '@/services/basic-axios';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import {LabelInputContainer} from "@/components/ui/LabelInputContainer"
@@ -16,10 +16,17 @@ const StudentPage = () => {
     e.preventDefault();
     setError(""); // Reset error message
     console.log("hello");
+  
     const creds = { username: enrollment };
+  
     try {
-      const response = await axios.post(``, creds);
+      const response = await basicAxiosPost(
+        '/your-endpoint', // replace with the actual endpoint
+        creds
+      );
+  
       console.log(response.data);
+  
       if (response.status === 200) {
         const dynamicUrl = `/student/${enrollment}`;
         window.location.href = dynamicUrl;

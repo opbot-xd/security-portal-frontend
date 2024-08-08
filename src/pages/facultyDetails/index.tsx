@@ -4,6 +4,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import {FingerprintButton} from "@/components/ui/FingerprintButton"
 import Drawer from '@/components/ui/Drawer'
+
+
 const FacultyDetailsPage = () => {
   const [image, setImage] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

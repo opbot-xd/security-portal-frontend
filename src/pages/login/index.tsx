@@ -2,7 +2,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/Label";
 import { Input } from "@/components/ui/input";
-import axios from "axios";
+import { basicAxiosPost } from '@/services/basic-axios';
+
 
 export function LoginForm() {
   const [email, setEmail] = React.useState("");
@@ -10,16 +11,29 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log("Form submitted");
-    const creds = { username: email, password:password };
-    const responseData =  await axios
-    .post(`https://security.iitr.ac.in:8000/security-app/admin-login`, creds)
-    console.log(responseData.data['token']);
-    if(responseData.status === 200){
-        sessionStorage.setItem('username', responseData.data.data['user_data']['username']);
-        sessionStorage.setItem('token', JSON.stringify(responseData.data.data['token']));
-
-      window.location.href = '/enroll';
+    const creds = { username: email, password: password };
+  
+    try {
+      const responseData = await basicAxiosPost(
+        '', // IMPORT endpoint
+        creds // data to be sent in POST request
+      );
+  
+  
+      if (responseData.status === 200) {
+        sessionStorage.setItem(
+          'username',
+          responseData.data.data['user_data']['username']
+        );
+        sessionStorage.setItem(
+          'token',
+          JSON.stringify(responseData.data.data['token'])
+        );
+  
+        window.location.href = '/enroll';
+      }
+    } catch (error) {
+      console.error('Login failed', error);
     }
   };
 
