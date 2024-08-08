@@ -1,12 +1,12 @@
 import React from "react";
-import { Label } from "../../components/ui/Label";
-import { Input } from "../../components/ui/input";
-import {LabelInputContainer} from "../../components/ui/LabelInputContainer"
-import {BottomGradient} from "../../components/ui/BottomGradient"
+import { Label } from "@/components/ui/Label";
+import { Input } from "@/components/ui/input";
+import {LabelInputContainer} from "@/components/ui/LabelInputContainer"
+import {BottomGradient} from "@/components/ui/BottomGradient"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-import Drawer from '../../components/ui/Drawer'
+import Drawer from '@/components/ui/Drawer'
 const FacultyPage = () => {
   const [fid, setFid] = React.useState("");
   const [error, setError] = React.useState(""); // State to manage error message

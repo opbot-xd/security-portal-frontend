@@ -1,12 +1,12 @@
 import React from "react";
-import { Label } from "../../components/ui/Label";
-import { Input } from "../../components/ui/input";
+import { Label } from "@/components/ui/Label";
+import { Input } from "@/components/ui/input";
 import axios from "axios";
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-import {LabelInputContainer} from "../../components/ui/LabelInputContainer"
-import {BottomGradient} from "../../components/ui/BottomGradient"
-import Drawer from '../../components/ui/Drawer'
+import {LabelInputContainer} from "@/components/ui/LabelInputContainer"
+import {BottomGradient} from "@/components/ui/BottomGradient"
+import Drawer from '@/components/ui/Drawer'
 
 
 const StudentPage = () => {

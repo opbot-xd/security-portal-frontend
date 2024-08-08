@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Label } from "../../components/ui/Label";
-import { Input } from "../../components/ui/input";
+import { Label } from "@/components/ui/Label";
+import { Input } from "@/components/ui/input";
 import Alert from '@mui/material/Alert';
 import Modal from 'react-modal';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { LabelInputContainer } from "../../components/ui/LabelInputContainer";
-import { BottomGradient } from "../../components/ui/BottomGradient";
-import { PhotoUploadButton } from "../../components/ui/PhotoUploadButton";
-import { DocumentUploadButton } from "../../components/ui/DocumentUploadButton";
-import Drawer from '../../components/ui/Drawer';
+import { LabelInputContainer } from "@/components/ui/LabelInputContainer";
+import { BottomGradient } from "@/components/ui/BottomGradient";
+import { PhotoUploadButton } from "@/components/ui/PhotoUploadButton";
+import { DocumentUploadButton } from "@/components/ui/DocumentUploadButton";
+import Drawer from '@/components/ui/Drawer';
 import axios from 'axios';
 
 function Gatepass() {

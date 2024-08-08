@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import RootLayout from '../components/layouts/Base';
-import Home from '../pages/home';
-import { LoginForm } from '../pages/login';
-import EnrollPage from '../pages/enroll';
-import StudentPage from '../pages/student';
-import FacultyPage from '../pages/faculty';
-import StudentDetailsPage from '../pages/StudentDetails';
-import FacultyDetailsPage from '../pages/facultyDetails';
-import TemporaryFaculty from '../pages/temporaryFaculty';
-import Gatepass from '../pages/gatePass';
-import ViewGatePass from '../pages/viewGatePass';
+import RootLayout from '@/components/layouts/Base';
+import Home from '@/pages/home';
+import { LoginForm } from '@/pages/login';
+import EnrollPage from '@/pages/enroll';
+import StudentPage from '@/pages/student';
+import FacultyPage from '@/pages/faculty';
+import StudentDetailsPage from '@/pages/StudentDetails';
+import FacultyDetailsPage from '@/pages/facultyDetails';
+import TemporaryFaculty from '@/pages/temporaryFaculty';
+import Gatepass from '@/pages/gatePass';
+import ViewGatePass from '@/pages/viewGatePass';
 const router = createBrowserRouter([
   {
     path: '/',

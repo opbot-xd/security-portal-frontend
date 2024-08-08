@@ -1,5 +1,5 @@
 
-import Drawer from '../../components/ui/Drawer'
+import Drawer from '@/components/ui/Drawer'
 
 
 function EnrollPage() {
