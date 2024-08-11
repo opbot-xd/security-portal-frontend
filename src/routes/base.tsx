@@ -5,11 +5,11 @@ import { LoginForm } from '@/pages/login';
 import EnrollPage from '@/pages/enroll';
 import StudentPage from '@/pages/student';
 import FacultyPage from '@/pages/faculty';
-import StudentDetailsPage from '@/pages/StudentDetails';
-import FacultyDetailsPage from '@/pages/facultyDetails';
 import TemporaryFaculty from '@/pages/temporaryFaculty';
 import Gatepass from '@/pages/gatePass';
 import ViewGatePass from '@/pages/viewGatePass';
+import FacultyFamily from '@/pages/facultyFamily';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -20,7 +20,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
-  }, {
+  },
+  {
     path: '/login',
     element: <RootLayout />,
     children: [
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
         element: <LoginForm />,
       },
     ],
-  },{
+  },
+  {
     path: '/enroll',
     element: <RootLayout />,
     children: [
@@ -37,43 +39,25 @@ const router = createBrowserRouter([
         index: true,
         element: <EnrollPage />,
       },
-    ],
-  },{
-    path: '/student',
-    element: <RootLayout />,
-    children: [
       {
-        index: true,
+        path: 'student',
         element: <StudentPage />,
       },
       {
-        path: ':studentId', // Dynamic route parameter
-        element: <StudentDetailsPage />, // Component to render
-      }
-    ],
-  },{
-    path: '/faculty',
-    element: <RootLayout />,
-    children: [
-      {
-        index: true,
+        path: 'faculty',
         element: <FacultyPage />,
       },
       {
-        path: ':studentId', // Dynamic route parameter
-        element: <FacultyDetailsPage />, // Component to render
-      }
-    ],
-  },{
-    path: '/temporary-faculty',
-    element: <RootLayout />,
-    children: [
-      {
-        index: true,
+        path: 'temporary-faculty',
         element: <TemporaryFaculty />,
       },
+      {
+        path: 'faculty-family',
+        element: <FacultyFamily />,
+      },
     ],
-  },{
+  },
+  {
     path: '/gate-pass',
     element: <RootLayout />,
     children: [
@@ -82,7 +66,8 @@ const router = createBrowserRouter([
         element: <Gatepass />,
       },
     ],
-  },{
+  },
+  {
     path: '/view-gate-pass',
     element: <RootLayout />,
     children: [

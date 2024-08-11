@@ -32,6 +32,7 @@ export default function TemporaryDrawer() {
           { text: 'Student', route: '/student' },
           { text: 'Faculty', route: '/faculty' },
           { text: 'Temporary faculty', route: '/temporary-faculty' },
+          { text: 'Faculty family', route: '/faculty-family' },
           { text: 'Create Gate Pass', route: '/gate-pass' },
           { text: 'View Gate Pass', route: '/view-gate-pass' },
         ].map((item, index) => (
