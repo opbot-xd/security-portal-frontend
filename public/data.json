@@ -1,23 +1,28 @@
-[
+{
+  "creds": [
     {
       "name": "John Doe",
       "phone": "+1234567890",
-      "id": "AB123456C"
+      "idNumber": "AB12345678",
+      "selfPhoto": "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg",
+      "document": "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg",
+      "status": "pending"
     },
     {
       "name": "Jane Smith",
       "phone": "+0987654321",
-      "id": "XY987654Z"
+      "idNumber": "XY98765432",
+      "selfPhoto": "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg",
+      "document": "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg",
+      "status": "pending"
     },
     {
       "name": "Alice Johnson",
       "phone": "+1122334455",
-      "id": "LM112233P"
-    },
-    {
-      "name": "Bob Brown",
-      "phone": "+5566778899",
-      "id": "CD556677R"
+      "idNumber": "CD11223344",
+      "selfPhoto": "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg",
+      "document": "https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1-1024x824.jpg",
+      "status": "accepted"
     }
   ]
-  
+}

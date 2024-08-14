@@ -29,12 +29,11 @@ export default function TemporaryDrawer() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {[
-          { text: 'Student', route: '/student' },
-          { text: 'Faculty', route: '/faculty' },
-          { text: 'Temporary faculty', route: '/temporary-faculty' },
-          { text: 'Faculty family', route: '/faculty-family' },
-          { text: 'Create Gate Pass', route: '/gate-pass' },
-          { text: 'View Gate Pass', route: '/view-gate-pass' },
+          { text: 'Student', route: '/enroll/student' },
+          { text: 'Faculty', route: '/enroll/faculty' },
+          { text: 'Temporary faculty', route: '/enroll/temporary-faculty' },
+          { text: 'Faculty family', route: '/enroll/faculty-family' },
+          { text: 'Gate Pass', route: '/gate-pass' },
         ].map((item, index) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton onClick={() => handleItemClick(item.route)}>

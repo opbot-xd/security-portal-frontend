@@ -9,6 +9,8 @@ import TemporaryFaculty from '@/pages/temporaryFaculty';
 import Gatepass from '@/pages/gatePass';
 import ViewGatePass from '@/pages/viewGatePass';
 import FacultyFamily from '@/pages/facultyFamily';
+import RequestGatePass from '@/components/RequestGatePass';
+import ApproveGatePasses from '@/pages/approveGatePass';
 
 const router = createBrowserRouter([
   {
@@ -65,16 +67,16 @@ const router = createBrowserRouter([
         index: true,
         element: <Gatepass />,
       },
-    ],
-  },
-  {
-    path: '/view-gate-pass',
-    element: <RootLayout />,
-    children: [
       {
-        index: true,
+        path: 'request',
+        element: <RequestGatePass />,
+      },{
+        path: 'view-pass',
         element: <ViewGatePass />,
-      },
+      },{
+        path: 'approve-pass',
+        element: <ApproveGatePasses/>,
+      }
     ],
   },
 ]);
